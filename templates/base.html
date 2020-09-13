@@ -1,11 +1,26 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Loja</title>
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<h2>Testing to see if it works</h2>
+<nav>
+    <div class="container">
+        <a href="/admin" e class="brand-logo">Renova</a>
+        <ul class="right">
+            <li><a href="/">Estoque</a></li>
+            <li><a href="/pessoas">Pessoas</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+<script src="{% static 'java_script/new_product.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

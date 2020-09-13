@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <table class="striped responsive-table centered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pessoa in data %}
+            <tr>
+                <td>{{ pessoa.id }}</td>
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.telefone }}</td>
+                <td><a><i class="light-green-text lighten-2-text material-icons">edit</i></a></td>
+            </tr>
+
+
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="fixed-action-btn">
+    <a href="/new_pessoa" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</div>
+{% endblock %}
