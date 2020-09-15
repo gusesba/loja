@@ -16,20 +16,22 @@
         </div>
     </form>
 
-    <!-- Tabela de produtos -->
+    <!-- Tabela de vendas -->
 
     <table class="striped responsive-table centered">
         <thead>
         <tr>
 
-            <th>Id</th>
             <th>Fornecedor</th>
+            <th>Comprador</th>
+            <th>Id Produto</th>
             <th>Produto</th>
             <th>Cor</th>
             <th>Marca</th>
             <th>Tamanho</th>
             <th>Valor</th>
             <th>Data Rec</th>
+            <th>Data Venda</th>
 
         </tr>
         </thead>
@@ -37,33 +39,31 @@
 
         <!-- Loop por todos os produtos recebidos -->
 
-        {% for produto in data %}
+        {% for venda in vendas %}
         <tr>
 
-            <td>{{ produto.id }}</td>
-            <td>{{ produto.fornecedor }}</td>
-            <td>{{ produto.produto }}</td>
-            <td>{{ produto.cor }}</td>
-            <td>{{ produto.marca }}</td>
-            <td>{{ produto.tamanho }}</td>
-            <td>{{ produto.valor }}</td>
-            <td>{{ produto.data_recebimento }}</td>
-            <td><a href="/produto?id={{ produto.id }}"><i
-                    class="light-green-text lighten-2-text material-icons">edit</i></a></td>
+            <td>{{ venda.produto.fornecedor }}</td>
+            <td>{{ venda.comprador }}</td>
+            <td>{{ venda.produto.id }}</td>
+            <td>{{ venda.produto.produto }}</td>
+            <td>{{ venda.produto.cor }}</td>
+            <td>{{ venda.produto.marca }}</td>
+            <td>{{ venda.produto.tamanho }}</td>
+            <td>{{ venda.produto.valor }}</td>
+            <td>{{ venda.produto.data_recebimento }}</td>
+            <td>{{ venda.data_venda }}</td>
 
         </tr>
         {% endfor %}
         </tbody>
     </table>
-
 </div>
 
 <!-- Botão flutuante para adicionar novo produto -->
 
 <div class="fixed-action-btn">
 
-    <a href="/new_product" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a href="/new_venda" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 
 </div>
-
 {% endblock %}

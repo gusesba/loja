@@ -1,30 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 <div>
+
+    <!-- Formulário de pesquisa de pessoas -->
+
+    <form>
+        {% csrf_token %}
+        <div class="row">
+
+            <input class="col offset-s2 s7" type="text" name="search" placeholder="Procurar">
+            <button style="margin-left:-70px; margin-top:5px;" class="btn-flat" type="submit" name="action"><i class="material-icons right">search</i>
+            </button>
+
+        </div>
+    </form>
+
+    <!-- Tabela de pessoas cadastradas -->
+
     <table class="striped responsive-table centered">
         <thead>
         <tr>
+
             <th>Id</th>
             <th>Nome</th>
             <th>Telefone</th>
+
         </tr>
         </thead>
         <tbody>
-        {% for pessoa in data %}
-            <tr>
-                <td>{{ pessoa.id }}</td>
-                <td>{{ pessoa.nome }}</td>
-                <td>{{ pessoa.telefone }}</td>
-                <td><a><i class="light-green-text lighten-2-text material-icons">edit</i></a></td>
-            </tr>
+        {% for pessoa in data %} <!-- Loop para cada pessoa -->
+        <tr>
 
+            <td>{{ pessoa.id }}</td>
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.telefone }}</td>
+            <td><a href="/pessoa?id={{ pessoa.id }}"><i class="light-green-text lighten-2-text material-icons">edit</i></a>
+            </td>
 
+        </tr>
         {% endfor %}
         </tbody>
     </table>
+
 </div>
+
+<!-- Botão flutuante para adicionar pessoa -->
 
 <div class="fixed-action-btn">
     <a href="/new_pessoa" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 </div>
+
 {% endblock %}

@@ -1,0 +1,23 @@
+----------------- Principais -----------------
+    Adicionar filtro de pesquisa.    v
+    Alterar Produto    v
+    Adicionar registro de vendas.
+    Restringir produtos para venda única (foreign key = primary key).
+    Adicionar coluna vendido na tabela estoque.
+    Adicionar coluna data de venda na tabela estoque.
+    Adicionar coluna preço de venda na tabela estoque.
+    Adicionar calculo para por peça.
+    Adicionar calculo para lucro total.
+    Adicionar calculo para devolver a pessoa por peça.
+    Adicionar calculo para devolver a pessoa total.
+    Adicionar calculo devendo total.
+    Gerar planilha/backup
+
+------------- Secundários ----------------------
+
+    Conectar computador com celular.
+    Adaptar layout para celular.
+    Adicionar leitor para código de barras.
+    Adicionar imagem do produto.
+    Esconder/Mostrar campos
+

@@ -10,9 +10,13 @@
             <div class="row">
                 <div class="input-field col s12">
 
-                    <input required="required" placeholder="Nome" name="nome" id="nome" type="text"
-                           class="validate">
-                    <label for="nome">Nome</label>
+                    <select id="fornecedor" name="fornecedor" required="required">
+                        <option value="" disabled selected>Fornecedor</option>
+                        {% for fornecedor in fornecedores %}
+                        <option value="{{ fornecedor.id }}">{{ fornecedor.nome }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="fornecedor">Fornecedor</label>
 
                 </div>
             </div>
@@ -35,4 +39,4 @@
 
     </div>
 </div>
-{% endblock content %}
+{% endblock %}

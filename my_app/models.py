@@ -24,9 +24,9 @@ class Pessoa(models.Model):
         return '{}'.format(self.nome)
 
 class Venda(models.Model):
-    id = models.AutoField(primary_key=True)
-    produto = models.ForeignKey('Produto', on_delete=models.PROTECT)
+    produto = models.ForeignKey('Produto', on_delete=models.PROTECT, primary_key=True)
     comprador = models.ForeignKey('Pessoa', on_delete=models.PROTECT)
+    data_venda = models.DateField()
 
     def __str__(self):
         return '{} | {} | {}'.format(self.comprador, self.produto, self.produto.fornecedor)

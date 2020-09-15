@@ -1,25 +1,41 @@
+<!-- Template Base do Sistema. Utilizado nas outras páginas -->
+
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Loja</title>
+
+    <!-- Incluindo a biblioteca css materialize e material icons -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
+
+<!-- Barra de navegação superior -->
+
 <nav>
     <div class="container">
         <a href="/admin" e class="brand-logo">Renova</a>
         <ul class="right">
+
             <li><a href="/">Estoque</a></li>
             <li><a href="/pessoas">Pessoas</a></li>
+
         </ul>
     </div>
 </nav>
 
+<!-- local onde será adicionado conteúdo nas outras páginas -->
+
 {% block content %}
 
 {% endblock %}
+
+<!-- Adicionando java script local e biblioteca js materialize -->
+
 <script src="{% static 'java_script/new_product.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

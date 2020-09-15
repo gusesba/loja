@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin-top: 20px;" class="row container">
+
+    <!-- Formulário para alterar pessoa -->
+
+    <form class="col s12" method="post">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="input-field col s7">
+
+                <input placeholder="{{ pessoa.nome }}" name="nome" id="nome" type="text" class="validate">
+                <label for="nome">Nome</label>
+
+            </div>
+
+            <p>
+                <label>
+                    <input type="checkbox" name="nome_check"/>
+                    <span>Alterar</span>
+                </label>
+            </p>
+
+        </div>
+        <div class="row">
+
+            <div class="input-field col s7">
+
+                <input placeholder="{{ pessoa.telefone }}" name="teleofone" id="telefone" type="number"
+                       class="validate">
+                <label for="telefone">Telefone</label>
+
+            </div>
+
+            <p>
+                <label>
+                    <input type="checkbox" name="telefone_check"/>
+                    <span>Alterar</span>
+                </label>
+            </p>
+
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+
+</div>
+</div>
+<div>
+
+    <!-- Tabela de produtos do fornecedor selecionado -->
+
+    <table class="striped responsive-table centered">
+        <thead>
+        <tr>
+
+            <th>Id</th>
+            <th>Fornecedor</th>
+            <th>Produto</th>
+            <th>Cor</th>
+            <th>Marca</th>
+            <th>Tamanho</th>
+            <th>Valor</th>
+            <th>Data Rec</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for produto in produtos %}
+        <tr>
+
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.fornecedor }}</td>
+            <td>{{ produto.produto }}</td>
+            <td>{{ produto.cor }}</td>
+            <td>{{ produto.marca }}</td>
+            <td>{{ produto.tamanho }}</td>
+            <td>{{ produto.valor }}</td>
+            <td>{{ produto.data_recebimento }}</td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
