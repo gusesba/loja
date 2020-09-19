@@ -24,7 +24,7 @@ class Pessoa(models.Model):
         return '{}'.format(self.nome)
 
 class Venda(models.Model):
-    produto = models.ForeignKey('Produto', on_delete=models.PROTECT, primary_key=True)
+    produto = models.OneToOneField('Produto', on_delete=models.PROTECT, primary_key=True)
     comprador = models.ForeignKey('Pessoa', on_delete=models.PROTECT)
     data_venda = models.DateField()
 

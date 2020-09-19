@@ -11,6 +11,7 @@ def home(request):
     # Recebe a pesquisa
     search = request.GET.get('search')
 
+
     # Caso seja feita alguma pesquisa data recebe os produtos filtrados, caso contrário recebe todos os produtos
     if (search):
         data = Produto.objects.filter(
@@ -165,6 +166,24 @@ def vendas(request):
     stuff_for_frontend = {'vendas': vendas}
     return render(request, 'vendas.html', stuff_for_frontend)
 
+
 def new_venda(request):
+    # Recebe os produtos e os clientes
+    produtos_exclude = Venda.objects.values_list('produto', flat=True)
+    produtos = Produto.objects.all().exclude(id__in=produtos_exclude)
+    comprador = Pessoa.objects.all()
+
+    # Recebe os dados do Formulário
+    produto_id = request.POST.get('produto')
+    comprador_id = request.POST.get('comprador')
+    data_venda = request.POST.get('data_venda')
+
+    # Cria venda
+    if (produto_id):
+        Venda.objects.create(produto=Produto.objects.get(id=produto_id),
+                             comprador=Pessoa.objects.get(id=comprador_id),
+                             data_venda=data_venda)
+
     # Retorna a página new_venda.html
-    return render(request, 'new_venda.html')
+    stuff_for_frontend = {'produtos': produtos, 'compradores': comprador}
+    return render(request, 'new_venda.html', stuff_for_frontend)
